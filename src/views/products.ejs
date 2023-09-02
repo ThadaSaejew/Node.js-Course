@@ -185,8 +185,9 @@
       <div class="container">
         <h1> hello world</h1>
         <% products.map((product)=>{ %>
-          <h4><%=product.productTiltle %></h4>
+          <h4><a href="/products/<%=product.id%>"><%=product.productTiltle %></h4>
           <p><%=product.productDescription %></p>
+          <p>ราคา : <%=product.productPrice%> บาท</p>
         <%})%>
 
       </div>
