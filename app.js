@@ -4,7 +4,7 @@ const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
 const productRouter= express.Router();
-const products = require("./data/products.json")
+const products = require("./data/product.json");
 const app = express();
 const PORT = process.env.PORT;
 
@@ -15,14 +15,9 @@ app.set("views","./src/views");
 app.set("view engine","ejs");
 
 productRouter.route("/").get((req,res)=>{
-    res.render("products",{
-        products:[
-            {productTiltle: "A 1 ", productDescription: "A 1 ",productPrice: 10},
-            {productTiltle: "A 1 ", productDescription: "A 1 ",productPrice: 20},
-            {productTiltle: "A 1 ", productDescription: "A 1 ",productPrice: 30},
-            {productTiltle: "A 1 ", productDescription: "A 1 ",productPrice: 40},
-        ],
-    });
+    res.render("products",
+        products,
+    );
 });
 app.use("/products",productRouter)
 
